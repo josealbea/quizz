@@ -120,18 +120,18 @@ body {
     color: #FFFFFF;
 }
 
-#question .reponse-a, #question .reponse-b, #question .reponse-c, #question .reponse-d {
+#question .reponse-1, #question .reponse-2, #question .reponse-3, #question .reponse-4 {
     width: 244px;
     padding: 0 20px 0 55px;
     line-height: 39px;
     height: 39px;
 }
 
-#question .reponse-a.active, #question .reponse-b.active, #question .reponse-c.active, #question .reponse-d.active {
+#question .reponse-1.active, #question .reponse-2.active, #question .reponse-3.active, #question .reponse-4.active {
     background: url(../images/selected.png) no-repeat;
 }
 
-#question .reponse-a.response, #question .reponse-b.response, #question .reponse-c.response, #question .reponse-d.response {
+#question .reponse-1.response, #question .reponse-2.response, #question .reponse-3.response, #question .reponse-4.response {
     background: url(../images/response.png) no-repeat;
 }
 
@@ -167,25 +167,25 @@ body {
     background: red;
 }
 
-#question .reponse-a {
+#question .reponse-1 {
     bottom: 98px;
     left: 50px;
     position: absolute;
 }
 
-#question .reponse-b {
+#question .reponse-2 {
     bottom: 98px;
     left: 397px;
     position: absolute;
 }
 
-#question .reponse-c {
+#question .reponse-3 {
     bottom: 47px;
     left: 50px;
     position: absolute;
 }
 
-#question .reponse-d {
+#question .reponse-4 {
     bottom: 47px;
     left: 397px;
     position: absolute;

@@ -22,7 +22,6 @@ $action     = isset($_GET['action']) ? $_GET['action'] : 'index';
 		
 			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
 			$action     = isset($_GET['action']) ? $_GET['action'] : 'index';
-			$id         = isset($_GET['id']) ? $_GET['id'] : -1;
 			
 			$dispatcher->dispatch($controller, $action); 
 		?>

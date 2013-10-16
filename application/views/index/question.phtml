@@ -1,28 +1,26 @@
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('.reponse').click(function() {
-			if ($('.reponse').hasClass("response")) {
-				alert('vous avez déja répondu a la question');
-			}
-			else {
-				$('.reponse').removeClass('active');
-				$(this).addClass('active');
-				$('#derniermot').show();
-			}
-		});
-		$('.yes').click(function() {
-			$.ajax();
-			$('#derniermot').hide();
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.reponse').click(function() {
+		if ($('.reponse').hasClass("response")) {
+			alert('vous avez déja répondu a la question');
+		}
+		else {
 			$('.reponse').removeClass('active');
-			$('.reponse-c').addClass('response');
-		});
-		$('.no').click(function() {
-			$('#derniermot').hide();
-		});
+			$(this).addClass('active');
+			$('#derniermot').show();
+		}
 	});
-	</script>
-</head>
-<body>
+	$('.yes').click(function() {
+		$.ajax();
+		$('#derniermot').hide();
+		$('.reponse').removeClass('active');
+		$('.reponse-3').addClass('response');
+	});
+	$('.no').click(function() {
+		$('#derniermot').hide();
+	});
+});
+</script>
 <div id="content">
 	<h1>Bienvenue sur Super Quiz ESGI</h1>
 	<div id="question">
@@ -34,14 +32,39 @@
 		<div class="number">
 			Question <span>10</span>/50
 		</div>
+		<?php $db = new PDO(DB, USER, PASSWORD); ?>
 		<div class="qi_question">
-			De quelle couleur est le cheval blanc d'Alexandre le grand ?
+			<?php
+			/*
+			 * GET QUESTION FROM DATABASE
+			 */
+			$question = Question::getQuestion();
+			if(count($question) > 0){
+				$questionId = $question['id'];
+				echo $question['question'];
+			}else{
+				echo 'Aucune question n\'a pu être trouvée.';
+			}
+			?>
 		</div>
 		<div class="response_question">
-			<div class="reponse reponse-a">Bleu</div>
-			<div class="reponse reponse-b">Blanc</div>
-			<div class="reponse reponse-c">Rouge</div>
-			<div class="reponse reponse-d">Vert</div>
+			<?php
+			/*
+			 * GET ANSWERS FROM DATABASE
+			 */
+			if($questionId){
+				$answers = Answer::getAnswers($questionId);
+				if(count($answers) > 0){
+					$i = 1;
+					foreach ($answers as $answer) {
+						echo '<div class="reponse reponse-'.$i.'">'.$answer['answer'].'</div>';
+						$i++;
+					}
+				}else{
+					echo 'Aucune réponse n\'a pu être trouvée.';
+				}
+			}
+			?>
 		</div>
 	</div>	
 </div>
