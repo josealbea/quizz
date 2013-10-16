@@ -1,0 +1,192 @@
+body {
+	background: #E9E9E9;
+	width: 768px;
+	margin: 20px auto;
+	font-family: "Roboto";
+}
+
+/** FONTS **/
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.eot');
+    src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto italic';
+    src: url('../fonts/Roboto-Italic-webfont.eot');
+    src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Italic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto bold';
+    src: url('../fonts/Roboto-Bold-webfont.eot');
+    src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto light';
+    src: url('../fonts/Roboto-Light-webfont.eot');
+    src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Light-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto black';
+    src: url('../fonts/Roboto-Black-webfont.eot');
+    src: url('../fonts/Roboto-Black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Black-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Black-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Black-webfont.svg#RobotoBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#content h1 {
+	font-size: 40px;
+	text-align: center;
+	color: #007da0;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+#content h2 {
+	font-size: 20px;
+	text-align: center;
+}
+
+#content img {
+	width: 368px;
+	display: block;
+	margin: 30px auto;
+}
+
+#content a#start_quiz {
+	display: block;
+	width: 200px;
+	text-align: center;
+	margin: 0 auto;
+	background: #007da0;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 2px #000000;
+	height: 35px;
+	line-height: 3	5px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+
+/** QUESTIONS **/
+
+#question {
+	background: url(../images/millions.jpeg) no-repeat top center;
+	width: 768px;
+	height: 576px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#question .qi_question {
+	color: #FFFFFF;
+	text-align:center;
+	bottom: 170px;
+	left: 80px;
+	position: absolute;
+}
+
+#question .response_question {
+    color: #FFFFFF;
+}
+
+#question .reponse-a, #question .reponse-b, #question .reponse-c, #question .reponse-d {
+    width: 244px;
+    padding: 0 20px 0 55px;
+    line-height: 39px;
+    height: 39px;
+}
+
+#question .reponse-a.active, #question .reponse-b.active, #question .reponse-c.active, #question .reponse-d.active {
+    background: url(../images/selected.png) no-repeat;
+}
+
+#question .reponse-a.response, #question .reponse-b.response, #question .reponse-c.response, #question .reponse-d.response {
+    background: url(../images/response.png) no-repeat;
+}
+
+#question #derniermot {
+    display: none;
+    float: left;
+    margin-left: 40px;
+    text-align: center;
+}
+
+#question #derniermot img {
+    width: 250px;
+}
+
+#question #derniermot .button {
+    border-radius: 5px;
+    border: 1px solid #888888;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    text-align: left;
+    margin: 0 10px;
+    display: inline-block;
+    background: #F2F2F2;
+    cursor: pointer;
+}
+
+#question #derniermot .button.yes {
+    background: green;
+}
+
+#question #derniermot .button.no {
+    background: red;
+}
+
+#question .reponse-a {
+    bottom: 98px;
+    left: 50px;
+    position: absolute;
+}
+
+#question .reponse-b {
+    bottom: 98px;
+    left: 397px;
+    position: absolute;
+}
+
+#question .reponse-c {
+    bottom: 47px;
+    left: 50px;
+    position: absolute;
+}
+
+#question .reponse-d {
+    bottom: 47px;
+    left: 397px;
+    position: absolute;
+}
