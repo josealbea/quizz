@@ -1,6 +1,7 @@
 <?php
 header('Content-type: application/json');
-$status = array('status' => '1', 'answer_id' => '8');
 
-return json_encode($status);
+$status = array('status' => '1', 'answer_id' => $_POST['answer_id']);
+
+echo json_encode($status);
 ?>
