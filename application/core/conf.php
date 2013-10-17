@@ -9,6 +9,7 @@ define('USER', 'root');
 define('PASSWORD', 'root');
 
 // Facebook configuration
-define('APPID', '167789340087009');
-define('APPSECRET', 'ddbe96646240707c0b65c4c86754fd59');
+define('APPID', '194744407377894');
+define('APPSECRET', '18559abeb6be6a8c8a26a60bd645d1fb');
+define('PAGEID', '535494466533197');
 ?>
