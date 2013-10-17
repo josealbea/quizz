@@ -21,11 +21,12 @@ jQuery(document).ready(function() {
 		jQuery.ajax({
 				type: 'POST',
 				url: '<?php echo SITE_ROOT; ?>?action=answer',
-				dataType: 'json',
+				dataType: 'html',
 				data: { answer_id: answerId }
 			})
 			.done(function(response) {
 				console.log('Done');
+				console.log(response);
 				if(response.status == 1) {
 					console.log('Bonne réponse');
 				} else {

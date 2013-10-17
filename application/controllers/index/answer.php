@@ -1,7 +1,11 @@
 <?php
-header('Content-type: application/json');
 
-$status = array('status' => '1', 'answer_id' => $_POST['answer_id']);
+$answer = Answer::getAnswerById($_POST['answer_id']);
+var_dump($answer);
 
-echo json_encode($status);
+ header('Content-type: application/json');
+
+ $status = array('status' => '1', 'answer_id' => $_POST['answer_id']);
+
+ echo json_encode($status);
 ?>

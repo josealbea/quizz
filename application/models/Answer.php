@@ -14,4 +14,16 @@ class Answer
 		}
 		return $answers;
 	}
+
+	public function getAnswerById($answerId){
+		try{
+			$this->db = new PDO(DB, USER, PASSWORD);
+			$answer = $this->db->prepare('SELECT * FROM answer WHERE id = ?');
+			$answer->execute(array($answerId));
+			$answer = $answer->fetch();
+		}catch(PDOException $e){
+			echo 'Connection has failed: ' . $e->getMessage();
+		}
+		return $answer;
+	}
 }
