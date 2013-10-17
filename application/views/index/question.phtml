@@ -1,23 +1,46 @@
+<?php
+/*
+ * Controller question (APPLICATION_ROOT/controllers/index/question.php)
+ */
+?>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('.reponse').click(function() {
-		if ($('.reponse').hasClass("response")) {
-			alert('vous avez déja répondu a la question');
+jQuery(document).ready(function() {
+	var answerId;
+	jQuery('.reponse').click(function() {
+		if (jQuery('.reponse').hasClass("response")) {
+			alert('Vous avez déja répondu à la question');
 		}
 		else {
-			$('.reponse').removeClass('active');
-			$(this).addClass('active');
-			$('#derniermot').show();
+			jQuery('.reponse').removeClass('active');
+			jQuery(this).addClass('active');
+			jQuery('#derniermot').show();
+			answerId = jQuery(this).attr('id');
 		}
 	});
-	$('.yes').click(function() {
-		$.ajax();
-		$('#derniermot').hide();
-		$('.reponse').removeClass('active');
-		$('.reponse-3').addClass('response');
+	jQuery('.yes').click(function() {
+		jQuery.ajax({
+				type: 'POST',
+				url: '<?php echo SITE_ROOT; ?>?action=answer',
+				dataType: 'json',
+				data: { answer_id: answerId }
+			})
+			.done(function(response) {
+				console.log('Done');
+				if(response.status == 1) {
+					console.log('Bonne réponse');
+				} else {
+					console.log('Mauvaise réponse');
+					jQuery('#derniermot').hide();
+					jQuery('.reponse').removeClass('active');
+					jQuery('.reponse-3').addClass('response');
+				}
+			})
+			.fail(function(response) {
+				console.log('Fail');
+			});
 	});
-	$('.no').click(function() {
-		$('#derniermot').hide();
+	jQuery('.no').click(function() {
+		jQuery('#derniermot').hide();
 	});
 });
 </script>
@@ -32,15 +55,13 @@ $(document).ready(function() {
 		<div class="number">
 			Question <span>10</span>/50
 		</div>
-		<?php $db = new PDO(DB, USER, PASSWORD); ?>
 		<div class="qi_question">
 			<?php
 			/*
 			 * GET QUESTION FROM DATABASE
 			 */
-			$question = Question::getQuestion();
+			// $question comes from question controller
 			if(count($question) > 0){
-				$questionId = $question['id'];
 				echo $question['question'];
 			}else{
 				echo 'Aucune question n\'a pu être trouvée.';
@@ -53,11 +74,11 @@ $(document).ready(function() {
 			 * GET ANSWERS FROM DATABASE
 			 */
 			if($questionId){
-				$answers = Answer::getAnswers($questionId);
+				// $answers comes from question controller
 				if(count($answers) > 0){
 					$i = 1;
 					foreach ($answers as $answer) {
-						echo '<div class="reponse reponse-'.$i.'">'.$answer['answer'].'</div>';
+						echo '<div id="' . $answer['id'] . '" class="reponse reponse-'.$i.'">'.$answer['answer'].'</div>';
 						$i++;
 					}
 				}else{

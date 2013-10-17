@@ -8,11 +8,11 @@ class Dispatcher
     public function dispatch($controller, $action) {
         $controllerFile = APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
         $view       	= APPLICATION_PATH.'views/'.$controller.'/'.$action.'.phtml';
-		if(file_exists($view)){
-        	include($view);
-        }
         if(file_exists($controllerFile)){
         	include($controllerFile);
+        }
+		if(file_exists($view)){
+        	include($view);
         }
 
 		// // Debug if "Page Not Found"
