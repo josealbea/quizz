@@ -5,7 +5,7 @@ require_once APPLICATION_PATH.'core/conf.php';
 require_once APPLICATION_PATH.'core/dispatcher.php';
 require_once APPLICATION_PATH.'core/facebook.php';
 
-global $user_id, $facebook;
+global $user, $user_id, $facebook;
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +52,8 @@ global $user_id, $facebook;
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
 		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js";
+		//js.src = "//connect.facebook.net/en_US/all.js";
+		js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=194744407377894";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -65,7 +66,7 @@ global $user_id, $facebook;
 		$config['secret'] = APPSECRET;
 
 		$facebook = new Facebook($config);
-
+		$user    = $facebook->api('/me');
 		$user_id = $facebook->getUser();
 
 		if($user_id){

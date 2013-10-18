@@ -6,12 +6,11 @@ class User
 	private $hasLiked;
 
 	public function insertUser($user){
-		$this->db = new PDO(DB, USER, PASSWORD);
-		$query    = $this->db->prepare('SELECT * FROM user WHERE fbId = ?');
+		$this->db    = new PDO(DB, USER, PASSWORD);
+		$query       = $this->db->prepare('SELECT * FROM user WHERE fbId = ?');
 		$query->execute(array($user['id']));
-
-		$this->likes    = self::getUserLikes($user, PAGEID);
-		echo 'likes: ' . $this->likes . '<br />';
+		
+		$this->likes = self::getUserLikes($user, PAGEID);
 
 		if(count($query->fetchAll()) == 0){
 			self::doInsert($user);
@@ -19,7 +18,6 @@ class User
 			// Check if user already liked the fan page before.
 			// If he did, we don't update this field in database
 			$this->hasLiked = self::checkIfUserAlreadyLiked($user);
-			echo 'hasLiked: ' . $this->hasLiked . '<br />';
 			self::doUpdate($user);
 		}
 	}
@@ -74,33 +72,6 @@ class User
 								$user['id'],
 								)
 							);
-
-			// var_dump($query->execute(array(
-			// 					$user['first_name'],
-			// 					$user['last_name'],
-			// 					$user['link'],
-			// 					$user['email'],
-			// 					$user['gender'],
-			// 					$this->likes,
-			// 					$this->hasLiked,
-			// 					$user['location']['name'],
-			// 					$user['locale'],
-			// 					$user['id'],
-			// 					)
-			// 				));
-			// var_dump(array(
-			// 					$user['first_name'],
-			// 					$user['last_name'],
-			// 					$user['link'],
-			// 					$user['email'],
-			// 					$user['gender'],
-			// 					$this->likes,
-			// 					$this->hasLiked,
-			// 					$user['location']['name'],
-			// 					$user['locale'],
-			// 					$user['id'],
-			// 					)
-			// 				));
 			return $this;
 		}catch(PDOException $e){
 			echo 'An error occured during the update of the user: ' . $e->getMessage();

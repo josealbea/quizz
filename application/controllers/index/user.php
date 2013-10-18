@@ -3,8 +3,8 @@
  * DATABASE INSERTION OR UPDATE OF THE USER
  */
 global $facebook;
+global $user;
 
-$user  = $facebook->api('/me');
 User::insertUser($user);
 
 /*
