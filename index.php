@@ -1,6 +1,7 @@
 <?php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
+require_once(ROOT.'core/conf.php');
 require_once(ROOT.'core/model.php');
 require_once(ROOT.'core/controller.php');
 require_once(ROOT.'core/facebook.php');
