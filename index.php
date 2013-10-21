@@ -1,86 +1,41 @@
-<?php 
-define('APPLICATION_PATH', dirname(__FILE__).'/application/');
+<?php
+define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+define('SITE_NAME', 'Open ESGI Quizz');
 
-require_once APPLICATION_PATH.'core/conf.php';
-require_once APPLICATION_PATH.'core/dispatcher.php';
-require_once APPLICATION_PATH.'core/facebook.php';
+// Database access
+define('DB', 'mysql:dbname=facebook;host=localhost;charset=utf8');
+define('USER', 'root');
+define('PASSWORD', 'root');
 
-global $user, $user_id, $facebook;
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title><?php echo SITE_NAME; ?></title>
-    <link rel="stylesheet" href="<?php echo PUBLIC_ROOT; ?>css/style.css" />
-	<script src="<?php echo PUBLIC_ROOT; ?>js/jquery-1.10.2.min.js"></script>
-</head>
-<body>
-	<!-- Facebook loading -->
-	<div id="fb-root"></div>
-	<script>
-	window.fbAsyncInit = function() {
-		// init the FB JS SDK
-		FB.init({
-		appId      : '<?php echo APPID; ?>',                    	    		// App ID from the app dashboard
-		channelUrl : '<?php echo SITE_ROOT; ?>application/core/channel.php', 	// Channel file for x-domain comms
-		status     : true,                                 						// Check Facebook Login status
-		xfbml      : true,                                	 					// Look for social plugins on the page
-		cookie	   : true														// Allow the app to refresh
-		});
+// Facebook configuration
+define('APPID', '194744407377894');
+define('APPSECRET', '18559abeb6be6a8c8a26a60bd645d1fb');
+define('PAGEID', '535494466533197');
 
-		// Check if the user is logged in
-		FB.getLoginStatus(function(response) {
-		if (response.status !== 'connected') {
-			// The user isn't logged in to Facebook.
-			FB.login(function(response){
-				console.log('not connected');
-				window.location.reload();
-			}, {scope: 'email,user_likes,user_location'}
-			);
-		}else {
-			// The user is logged in to Facebook and has authentificated the app
-			var uid = response.authResponse.userID;
-			var accessToken = response.authResponse.accessToken;
-			console.log('connected - uid = ' + uid);
-		}	
-		});
-	};
+require_once(ROOT.'core/model.php');
+require_once(ROOT.'core/controller.php');
+require_once(ROOT.'core/facebook.php');
 
-	// Load the SDK asynchronously
-	(function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.id = id;
-		//js.src = "//connect.facebook.net/en_US/all.js";
-		js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=194744407377894";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	</script>
-	<!-- End of facebook loading -->
 
-	<div id="content">
-		<?php
-		$config = array();
-		$config['appId'] = APPID;
-		$config['secret'] = APPSECRET;
+$params     = explode('/', $_GET['p']);
+$controller = !empty($params[0]) ? $params[0] : 'index';
+$action     = isset($params[1]) ? $params[1] : 'index';
 
-		$facebook = new Facebook($config);
-		$user    = $facebook->api('/me');
-		$user_id = $facebook->getUser();
+if(file_exists('controllers/'.$controller.'.php')){
+	require_once('controllers/'.$controller.'.php');
+}else{
+	echo '404 Not Found';
+}
 
-		if($user_id){
-			$dispatcher = new Dispatcher;
-		
-			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'index';
-			$action     = isset($_GET['action']) ? $_GET['action'] : 'index';
-			
-			$dispatcher->dispatch($controller, $action); 
-		}else{
-			echo 'User not logged in';
-		}
-		?>
-	</div>
-</div>
-</body>
-</html>
+date_default_timezone_set("Europe/Paris");  
+
+$controller = new $controller;
+
+if(method_exists($controller, $action.'Action')){
+	unset($params[0]);
+	unset($params[1]);
+	call_user_func_array(array($controller, $action.'Action'), $params);
+}else{
+	echo '404 not found';
+}
