@@ -2,6 +2,7 @@
 jQuery(document).ready(function() {
 	var user_id = <?php echo $fbUser['id']; ?>;
 	var questionId = <?php echo $questionId; ?>;
+	var currentGame = <?php echo $this->currentGame; ?>;
 	var answerId;
 	if(user_id && user_id != 0){
 		jQuery.ajax({
@@ -29,7 +30,7 @@ jQuery(document).ready(function() {
 			type: 'POST',
 			url: '<?php echo WEBROOT; ?>index/answer',
 			dataType: 'json',
-			data: { questionId: questionId, answerId: answerId }
+			data: { currentGame: currentGame, questionId: questionId, answerId: answerId }
 		})
 		.done(function(response) {
 			console.log('Done; response: ');
@@ -61,7 +62,7 @@ jQuery(document).ready(function() {
 		/*
 		 * GET QUESTION FROM DATABASE
 		 */
-		if(count($question) > 0){
+		if($question){
 			echo $question['question'];
 		}else{
 			echo 'Aucune question n\'a pu être trouvée.';

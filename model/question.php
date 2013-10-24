@@ -29,14 +29,16 @@ class Question extends Model
 										WHERE game = ?
 									  )
 						ORDER BY RAND();';
+				$query = $this->db->prepare($sql);
+				$query->execute(array($level, $game));
 			}else{
 				$sql = 'SELECT id, question, level
 						FROM question
 						WHERE level = ?
 						ORDER BY RAND()';
+				$query = $this->db->prepare($sql);
+				$query->execute(array($level));
 			}
-			$query = $this->db->prepare($sql);
-			$query->execute(array($level, $game));
 			$question = $query->fetch();
 			return $question;
 		} catch (Exception $e) {

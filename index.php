@@ -1,11 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
+require_once(ROOT.'core/facebook.php');
 require_once(ROOT.'core/conf.php');
 require_once(ROOT.'core/model.php');
 require_once(ROOT.'core/controller.php');
-require_once(ROOT.'core/facebook.php');
-
 
 $params     = explode('/', $_GET['p']);
 $controller = !empty($params[0]) ? $params[0] : 'index';
@@ -17,7 +19,7 @@ if(file_exists('controllers/'.$controller.'.php')){
 	echo '404 Not Found';
 }
 
-date_default_timezone_set("Europe/Paris");  
+date_default_timezone_set("Europe/Paris");
 
 $controller = new $controller;
 

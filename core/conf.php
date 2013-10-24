@@ -11,3 +11,4 @@ define('PASSWORD', 'root');
 define('APPID', '194744407377894');
 define('APPSECRET', '18559abeb6be6a8c8a26a60bd645d1fb');
 define('PAGEID', '535494466533197');
+define('MAX_QUESTIONS', 3);

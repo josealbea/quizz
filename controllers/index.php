@@ -2,7 +2,7 @@
 class Index extends Controller
 {
 	public function indexAction()
-	{		
+	{
 		$this->title   = 'Test magic setter for title';
 
 		// Loading layout containing html and Facebook API instance
@@ -11,7 +11,7 @@ class Index extends Controller
 		// Setting parameters with magical setters	
 		$this->quizz   = new Quizz();		
 		$this->user    = new User($this->facebook);
-
+		
 		// Rendering the page
 		$this->render('index');
 	}
@@ -22,17 +22,16 @@ class Index extends Controller
 		$this->loadLayout();
 
 		// Setting parameters with magical setters
-		$this->quizz      = new Quizz();
+		$this->quizz = new Quizz();
 		
 		// Check if the user already has a game running
-		$userGame = new Game($this->facebook);
-		$currentGame = $userGame->getUserCurrentGame();
+		$userGame    = new Game($this->facebook);
+		$this->currentGame = $userGame->getUserCurrentGame();
 		
-		$question         = new Question();
-		
+		$question = new Question();
 		// If the user has a game running, we get questions left
-		if($currentGame && $currentGame != 0){
-			$this->question   = $question->getQuestion(1, $currentGame);
+		if($this->currentGame && $this->currentGame != 0){
+			$this->question   = $question->getQuestion(1, $this->currentGame);
 		}else{
 			$this->question   = $question->getQuestion();
 		}
@@ -51,6 +50,8 @@ class Index extends Controller
 		// Loading layout containing html and Facebook API instance
 		$this->loadLayout('json');
 
+		echo 'userAction()';
+		
 		// Setting parameters with magical setters
 		$user = new User($this->facebook);
 		$this->user = $user->insertUser($this->fbUser);
@@ -62,11 +63,10 @@ class Index extends Controller
 		$this->loadLayout('json');
 
 		// Setting parameters with magical setters
-		$answer           = new Answer();
-		$this->answer    = $answer->getAnswerById($_POST['answerId']);
-
-		$game = new Game();
-		$this->game = $game->setGame(true, $this->fbUser, $_POST['questionId'], $this->answer);
+		$answer       = new Answer();
+		$this->answer = $answer->getAnswerById($_POST['answerId']);
+		$game         = new Game();
+		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $this->answer);
 
 
 		// Rendering the page

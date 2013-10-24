@@ -46,6 +46,8 @@ class Controller
      */
 	public function loadLayout($layout = null)
 	{
+		// Temporize the output in order to set sessions and content before rendering it
+		ob_start();
 		if($layout == null){
 			if(file_exists(ROOT.'layout/'.$this->layout.'.php')){
 				require_once(ROOT.'layout/'.$this->layout.'.php');
@@ -86,5 +88,8 @@ class Controller
 				require_once(ROOT.'layout/'.$this->layout.'_end.php');
 			}
 		}
+		
+		// Stops the temporization started in loadLayout()
+		echo ob_get_clean();
 	}
 }

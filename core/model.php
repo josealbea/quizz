@@ -58,9 +58,6 @@ class Model
 
 		$sql .= ';';
 
-		//DEBUG: 
-		//echo '<pre>'; var_dump($sql); echo '</pre>'; 
-
 		// Process the request
 		try{
 			$query = $this->db->query($sql);
@@ -83,13 +80,17 @@ class Model
 	public function insert($fields = array(), $where = array())
 	{
 		// If we send an id, then we update the field in database
-		if(isset($fields['id']) && !empty($fields['id'])){
+		if(
+			( isset($fields['id']) && !empty($fields['id']) ) 
+			|| 
+			( isset($where['id']) && !empty($where['id']) )
+		  ){
 			// UPDATE
 			$sql = 'UPDATE ' . $this->table . ' SET ';
 			$i = 0;
 			foreach ($fields as $key => $value) {
 				if($i == 0){
-					$sql .= $key . ' = "' . $value . '" ';
+					$sql .= $key . ' = "' . $value . '"';
 				}else{
 					$sql .= ', ' . $key . ' = "' . $value . '" ';
 				}
@@ -108,6 +109,8 @@ class Model
 					$i++;
 				}
 			}
+
+			echo '<pre>'; var_dump($sql); echo '</pre>';
 
 			try{
 				$query = $this->db->query($sql);

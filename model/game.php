@@ -2,16 +2,17 @@
 class Game extends Model
 {
 	protected $user;
+	protected $currentGame;
 	protected $questionId;
 	protected $answer;
 
-	public function setGame($newGame = null, $fbUser, $questionId, $answer)
+	public function setGame($game = null, $fbUser, $questionId, $answer)
 	{
-		$this->user     = $fbUser;
-		$this->questionId = $questionId;
-		$this->answer   = $answer;
-		var_dump($newGame); 
-		if($newGame == true){
+		$this->user        = $fbUser;
+		$this->currentGame = $game;
+		$this->questionId  = $questionId;
+		$this->answer      = $answer;
+		if($game == null || $game == 0){
 			self::createGame();
 		}else{
 			self::updateGame();
@@ -32,13 +33,26 @@ class Game extends Model
 		$fields = array('game' => $gameInserted, 'question' => $this->questionId);
 		$this->table = 'asked_questions';
 		$this->insert($fields);
-
-		return $this;
 	}
 
 	public function updateGame()
 	{
-		echo 'updateGame()';
+		// Check if the user lost
+		$done = ($this->answer['flag'] == 0) ? 1 : 0;
+		if($done == 0 && self::getTotalAskedQuestions($this->currentGame)+1 >= MAX_QUESTIONS){
+			$done = 1;
+		}
+
+		// Add the question to the asked_questions table.
+		$fields = array('game' => $this->currentGame, 'question' => $this->questionId);
+		$this->table = 'asked_questions';
+		$this->insert($fields);
+
+		// Update the game
+		$fields = array('done' => $done);
+		$this->table = 'game';
+		$where  = array('id' => $this->currentGame);
+		$this->insert($fields, $where);
 	}
 
 	public function getUserCurrentGame()
@@ -58,5 +72,13 @@ class Game extends Model
 		}else{
 			return 0;
 		}
+	}
+
+	public function getTotalAskedQuestions($gameId)
+	{
+		$fields = array();
+		$this->table = 'asked_questions';
+		$where = array('game' => $gameId);
+		return count($this->select($fields, $where));
 	}
 }
