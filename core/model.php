@@ -89,6 +89,7 @@ class Model
 			$sql = 'UPDATE ' . $this->table . ' SET ';
 			$i = 0;
 			foreach ($fields as $key => $value) {
+				if($key == 'id') continue;
 				if($i == 0){
 					$sql .= $key . ' = "' . $value . '"';
 				}else{
