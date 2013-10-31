@@ -49,8 +49,6 @@ class Index extends Controller
 	{
 		// Loading layout containing html and Facebook API instance
 		$this->loadLayout('json');
-
-		echo 'userAction()';
 		
 		// Setting parameters with magical setters
 		$user = new User($this->facebook);

@@ -111,8 +111,6 @@ class Model
 				}
 			}
 
-			echo '<pre>'; var_dump($sql); echo '</pre>';
-
 			try{
 				$query = $this->db->query($sql);
 			}catch(PDOException $e){
@@ -127,9 +125,9 @@ class Model
 			$i = 0;
 			foreach ($fields as $key => $value) {
 				if($i == 0){
-					$sql .= $key;
+					$sql .= '`' . $key . '`';
 				}else{
-					$sql .= ', ' . $key;
+					$sql .= ', `' . $key . '`';
 				}
 				$i++;
 			}

@@ -12,6 +12,14 @@ class Game extends Model
 		$this->currentGame = $game;
 		$this->questionId  = $questionId;
 		$this->answer      = $answer;
+		
+			// echo '<pre>';
+			// 	echo '<br />$this->user: '; print_r($this->user);
+			// 	echo '<br />$this->currentGame: '.$this->currentGame;
+			// 	echo '<br />$this->questionId: '.$this->questionId;
+			// 	echo '<br />$this->answer: '; print_r($this->answer);
+			// echo '</pre>';
+
 		if($game == null || $game == 0){
 			self::createGame();
 		}else{
@@ -27,6 +35,11 @@ class Game extends Model
 		// Create the game
 		$fields = array('date' => date('Y-m-d H:i:s', time()), 'user_id' => $this->user['id'], 'done' => $done);
 		$this->table = 'game';
+
+			// echo '<pre>';
+			// 	echo '<br />$done: '.$done;
+			// 	echo '<br />$fields: '; print_r($fields);
+			// echo '</pre>';
 		$gameInserted = $this->insert($fields);
 
 		// Add the question to the asked_questions table.
@@ -64,8 +77,6 @@ class Game extends Model
 		$where = array('user_id' => $fbUser['id'], 'done' => '0');
 
 		$currentGame = $this->select($fields, $where, array(), array(), null);
-
-		//echo '<pre>'; var_dump($currentGame); echo '</pre>';
 
 		if($currentGame['total'] > 0){
 			return $currentGame['id'];

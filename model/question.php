@@ -1,21 +1,6 @@
 <?php
 class Question extends Model
-{	
-	// public function getQuestion($level = 1)
-	// {
-	// 	try{
-	// 		$fields = array('id', 'question', 'level');
-	// 		$this->table = 'question';
-	// 		$where = array('level' => $level);
-	// 		$order = array('RAND()' => '');
-	// 		$limit = 1;
-	// 		$question = $this->select($fields, $where, $order, $limit, null);
-	// 	}catch(Exception $e){
-	// 		echo 'An error occurred while trying to get the question: ' . $e->getMessage();
-	// 	}
-	// 	return $question;
-	// }
-
+{
 	public function getQuestion($level = 1, $game = null)
 	{
 		try {
