@@ -10,7 +10,7 @@ require_once(ROOT.'core/model.php');
 require_once(ROOT.'core/controller.php');
 
 $params     = explode('/', $_GET['p']);
-$controller = !empty($params[0]) ? $params[0] : 'index';
+$controller = !empty($params[0]) && $params[0] != 1 ? $params[0] : 'index';
 $action     = isset($params[1]) ? $params[1] : 'index';
 
 if(file_exists('controllers/'.$controller.'.php')){
