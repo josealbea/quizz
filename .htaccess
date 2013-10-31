@@ -1,3 +1,6 @@
+#Obligatoire pour l'utilisation sur 1&1 sans quoi nous optenons une erreur 404.
+Options -MultiViews
 RewriteEngine on
+#Obligatoire pour l'utilisation sur 1&1 sans quoi nous optenons une erreur 404.
 RewriteBase /facebook/quizz
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
