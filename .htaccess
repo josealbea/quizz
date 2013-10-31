@@ -1,4 +1,0 @@
-#Obligatoire pour l'utilisation sur 1&1 sans quoi nous obtenons une erreur 404.
-Options -MultiViews
-RewriteEngine on
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
