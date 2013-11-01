@@ -29,6 +29,8 @@
 				window.location.reload();
 			}, {scope: 'email,user_likes,user_location'}
 			);
+		}else if (response.status === 'not_authorized') {
+			window.location.reload();
 		}else {
 			// The user is logged in to Facebook and has authentificated the app
 			var uid = response.authResponse.userID;
