@@ -59,4 +59,3 @@
 
 		$facebook = new Facebook($config);
 		$fbUser   = $facebook->api('/me');
-		?>
