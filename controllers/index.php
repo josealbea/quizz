@@ -27,11 +27,28 @@ class Index extends Controller
 		// Check if the user already has a game running
 		$userGame    = new Game($this->facebook);
 		$this->currentGame = $userGame->getUserCurrentGame();
+		$this->totalAsked  = $userGame->getTotalAskedQuestions($this->currentGame);
+
+		// if($this->totalAsked > 0){
+		// 	$level = floor(($this->totalAsked + 1)/QUESTION_PER_LEVEL) + 1;
+		// }else{
+		// 	$level = 1;
+		// }
+
+		if($this->totalAsked < 5){
+			$level = 1;
+		}elseif($this->totalAsked < 10){
+			$level = 2;
+		}elseif($this->totalAsked < 15){
+			$level = 3;
+		}else{
+			$level = 4;
+		}
 		
 		$question = new Question();
 		// If the user has a game running, we get questions left
 		if($this->currentGame && $this->currentGame != 0){
-			$this->question   = $question->getQuestion(1, $this->currentGame);
+			$this->question   = $question->getQuestion($level, $this->currentGame);
 		}else{
 			$this->question   = $question->getQuestion();
 		}
