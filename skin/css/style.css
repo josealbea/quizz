@@ -1,5 +1,6 @@
 body {
-	background: #E9E9E9;
+	background:url(../images/bg_principal.png) no-repeat;
+    background-size: cover;
 	width: 768px;
 	margin: 20px auto;
 	font-family: "Roboto";

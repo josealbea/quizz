@@ -1,6 +1,5 @@
 <h1>Bienvenue sur Super Quiz ESGI</h1>		
 <h2>Testez votre connaissance sur votre école et comparez vos scores avec vos amis.</h2>
-<img src="<?php echo $quizz->getImageUrl('qi_quiz.jpg'); ?>" alt="Quiz ESGI" />
 <?php
 /*
  * Check if the user likes our fan page or not.
