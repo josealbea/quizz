@@ -69,6 +69,9 @@ class Model
 		}catch(PDOException $e){
 			echo 'There was an error processing the request: ' . $e->getMessage();
 		}
+		catch(Exception $e) {
+			echo 'There was an error processing the request: ' . $e->getMessage();
+		}
 		return $query;
 	}
 

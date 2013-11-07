@@ -30,9 +30,9 @@ class Answer extends Model
 	public function getCorrectAnswer($questionId)
 	{
 		$fields = array('id', 'answer');
-		$this->table = 'aswer';
+		$this->table = 'answer';
 		$where = array('question_id' => (int)$questionId);
-		$oorder = array();
+		$order = array();
 		$limit = 1;
 		$fetch = 'one';
 

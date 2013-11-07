@@ -72,6 +72,7 @@ class Index extends Controller
 		// Setting parameters with magical setters
 		$answer           = new Answer();
 		$this->answer     = $answer->getAnswerById($_POST['answerId']);
+		$this->correctAnswer = $answer->getCorrectAnswer($_POST['questionId']);
 		
 		$game             = new Game();
 		$this->totalAsked = $game->getTotalAskedQuestions($_POST['currentGame']);
@@ -83,7 +84,7 @@ class Index extends Controller
 		}
 		
 		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done);
-		$response = array('result' => $done);
+		$response = array('result' => $done, 'correctAnswer' => $this->correctAnswer);
 		echo json_encode($response);
 		// Rendering the page
 		$this->render('answer');

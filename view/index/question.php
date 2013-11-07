@@ -36,11 +36,18 @@ jQuery(document).ready(function() {
 			if (response.result == 1) 
 			{
 				jQuery('.reponse').removeClass('active');
-				jQuery('.reponse').addClass('response');
+				jQuery('#' + response.correctAnswer.id).addClass('response');
+				setTimeout(function(){
+					window.location.reload();
+				}, 7000);
 			}
 			else 
 			{	
-				jQuery('.reponse').addClass('response');
+				jQuery('#' + response.correctAnswer.id).addClass('response');
+				setTimeout(function(){
+					window.location.reload();
+				}, 7000);
+
 			}
 		})
 		.fail(function(response){
