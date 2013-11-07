@@ -29,20 +29,12 @@ class Index extends Controller
 		$this->currentGame = $userGame->getUserCurrentGame();
 		$this->totalAsked  = $userGame->getTotalAskedQuestions($this->currentGame);
 
-		// if($this->totalAsked > 0){
-		// 	$level = floor(($this->totalAsked + 1)/QUESTION_PER_LEVEL) + 1;
-		// }else{
-		// 	$level = 1;
-		// }
-
 		if($this->totalAsked < 5){
 			$level = 1;
 		}elseif($this->totalAsked < 10){
 			$level = 2;
-		}elseif($this->totalAsked < 15){
-			$level = 3;
 		}else{
-			$level = 4;
+			$level = 3;
 		}
 		
 		$question = new Question();
@@ -78,12 +70,18 @@ class Index extends Controller
 		$this->loadLayout('json');
 
 		// Setting parameters with magical setters
-		$answer       = new Answer();
-		$this->answer = $answer->getAnswerById($_POST['answerId']);
+		$answer           = new Answer();
+		$this->answer     = $answer->getAnswerById($_POST['answerId']);
 		
-		$done         = ($this->answer['flag'] == 0) ? 1 : 0;
+		$game             = new Game();
+		$this->totalAsked = $game->getTotalAskedQuestions($_POST['currentGame']);
+
+		if( (($this->totalAsked + 1) == MAX_QUESTIONS) || ($this->answer['flag'] == 0) ){
+			$done = 1;
+		}else{
+			$done = 0;
+		}
 		
-		$game         = new Game();
 		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done);
 		$response = array('result' => $done);
 		echo json_encode($response);

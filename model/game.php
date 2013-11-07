@@ -46,11 +46,6 @@ class Game extends Model
 		$this->table = 'game';
 		$where  = array('id' => $this->currentGame);
 		$this->insert($fields, $where);
-		if($this->done == 1){
-			return 1;
-		}else{
-			return 0;
-		}
 	}
 
 	public function getUserCurrentGame()
