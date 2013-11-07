@@ -80,9 +80,11 @@ class Index extends Controller
 		// Setting parameters with magical setters
 		$answer       = new Answer();
 		$this->answer = $answer->getAnswerById($_POST['answerId']);
+		
+		$done         = ($this->answer['flag'] == 0) ? 1 : 0;
+		
 		$game         = new Game();
-		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $this->answer);
-
+		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done);
 
 		// Rendering the page
 		$this->render('answer');

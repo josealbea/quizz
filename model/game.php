@@ -4,21 +4,14 @@ class Game extends Model
 	protected $user;
 	protected $currentGame;
 	protected $questionId;
-	protected $answer;
+	protected $done;
 
-	public function setGame($game = null, $fbUser, $questionId, $answer)
+	public function setGame($game = null, $fbUser, $questionId, $done)
 	{
 		$this->user        = $fbUser;
 		$this->currentGame = $game;
 		$this->questionId  = $questionId;
-		$this->answer      = $answer;
-		
-			// echo '<pre>';
-			// 	echo '<br />$this->user: '; print_r($this->user);
-			// 	echo '<br />$this->currentGame: '.$this->currentGame;
-			// 	echo '<br />$this->questionId: '.$this->questionId;
-			// 	echo '<br />$this->answer: '; print_r($this->answer);
-			// echo '</pre>';
+		$this->done      = $done;
 
 		if($game == null || $game == 0){
 			self::createGame();
@@ -29,17 +22,10 @@ class Game extends Model
 
 	public function createGame()
 	{
-		// Check if the user lost
-		$done = ($this->answer['flag'] == 0) ? 1 : 0;
-
 		// Create the game
-		$fields = array('date' => date('Y-m-d H:i:s', time()), 'user_id' => $this->user['id'], 'done' => $done);
+		$fields = array('date' => date('Y-m-d H:i:s', time()), 'user_id' => $this->user['id'], 'done' => $this->done);
 		$this->table = 'game';
 
-			// echo '<pre>';
-			// 	echo '<br />$done: '.$done;
-			// 	echo '<br />$fields: '; print_r($fields);
-			// echo '</pre>';
 		$gameInserted = $this->insert($fields);
 
 		// Add the question to the asked_questions table.
@@ -50,22 +36,21 @@ class Game extends Model
 
 	public function updateGame()
 	{
-		// Check if the user lost
-		$done = ($this->answer['flag'] == 0) ? 1 : 0;
-		if($done == 0 && self::getTotalAskedQuestions($this->currentGame)+1 >= MAX_QUESTIONS){
-			$done = 1;
-		}
-
 		// Add the question to the asked_questions table.
 		$fields = array('game' => $this->currentGame, 'question' => $this->questionId);
 		$this->table = 'asked_questions';
 		$this->insert($fields);
 
 		// Update the game
-		$fields = array('done' => $done);
+		$fields = array('done' => $this->done);
 		$this->table = 'game';
 		$where  = array('id' => $this->currentGame);
 		$this->insert($fields, $where);
+		if($this->done == 1){
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 
 	public function getUserCurrentGame()
