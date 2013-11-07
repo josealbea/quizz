@@ -17,7 +17,7 @@ class Answer extends Model
 	{
 		$fields = array();
 		$this->table = 'answer';
-		$where = array('id' => $answerId);
+		$where = array('id' => (int)$answerId);
 		$order = array();
 		$limit = 1; 
 		$fetch = 'one';
@@ -25,5 +25,19 @@ class Answer extends Model
 		$answer = $this->select($fields, $where, $order, $limit, $fetch);
 
 		return $answer;
+	}
+
+	public function getCorrectAnswer($questionId)
+	{
+		$fields = array('id', 'answer');
+		$this->table = 'aswer';
+		$where = array('question_id' => (int)$questionId);
+		$oorder = array();
+		$limit = 1;
+		$fetch = 'one';
+
+		$correctAnswer = $this->select($fields, $where, $order, $limit, $fetch);
+
+		return $correctAnswer;
 	}
 }

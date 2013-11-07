@@ -33,8 +33,15 @@ jQuery(document).ready(function() {
 			data: { currentGame: currentGame, questionId: questionId, answerId: answerId }
 		})
 		.done(function(response) {
-			console.log('Done; response: ');
-			console.log(response);
+			if (response.result == 1) 
+			{
+				jQuery('.reponse').removeClass('active');
+				jQuery('.reponse').addClass('response');
+			}
+			else 
+			{	
+				jQuery('.reponse').addClass('response');
+			}
 		})
 		.fail(function(response){
 			console.log('Fail; response: ');

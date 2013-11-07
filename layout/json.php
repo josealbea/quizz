@@ -6,4 +6,4 @@ $config['secret'] = APPSECRET;
 $facebook = new Facebook($config);
 $fbUser   = $facebook->api('/me');
 
-//header('Content-Type: application/json');
+header('Content-Type: application/json');

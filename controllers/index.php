@@ -85,7 +85,8 @@ class Index extends Controller
 		
 		$game         = new Game();
 		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done);
-
+		$response = array('result' => $done);
+		echo json_encode($response);
 		// Rendering the page
 		$this->render('answer');
 	}
