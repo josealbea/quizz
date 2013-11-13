@@ -191,3 +191,7 @@ body {
     left: 397px;
     position: absolute;
 }
+
+.loader{
+    background-image: url('../images/ajax-loader.gif');
+}

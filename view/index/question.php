@@ -33,20 +33,25 @@ jQuery(document).ready(function() {
 			data: { currentGame: currentGame, questionId: questionId, answerId: answerId }
 		})
 		.done(function(response) {
+			console.log('response : '); console.log(response);
+			console.log('result : ' + response.result);
 			if (response.result == 1) 
 			{
 				jQuery('.reponse').removeClass('active');
 				jQuery('#' + response.correctAnswer.id).addClass('response');
-				setTimeout(function(){
-					window.location.reload();
-				}, 7000);
+				FB.ui({
+				  method: 'feed',
+				  message: 'TESTTT',
+				  link: 'http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197',
+				  caption: 'ESGI Quizz Community, le jeu qui vous met à l\'épreuve !',
+				}, function(response){});
 			}
 			else 
 			{	
 				jQuery('#' + response.correctAnswer.id).addClass('response');
 				setTimeout(function(){
 					window.location.reload();
-				}, 7000);
+				}, 4000);
 
 			}
 		})
@@ -70,6 +75,8 @@ jQuery(document).ready(function() {
 	</div>
 	<div class="number">
 		Question <span>10</span>/50
+	</div>
+	<div class="loader">
 	</div>
 	<div class="qi_question">
 		<?php
