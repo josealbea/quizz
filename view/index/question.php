@@ -78,7 +78,7 @@ jQuery(document).ready(function() {
 		<div class="button no" >NON</div>
 	</div>
 	<div class="shareResult">
-		e<a href="<?php echo WEBROOT; ?>index/question" id="share-result-link">Partager le résultat</a>';
+		<a href="#" id="share-result-link">Partager le résultat</a>';
 	</div>
 	<div class="number">
 		Question <span>10</span>/50
