@@ -39,12 +39,16 @@ jQuery(document).ready(function() {
 			{
 				jQuery('.reponse').removeClass('active');
 				jQuery('#' + response.correctAnswer.id).addClass('response');
-				FB.ui({
-				  method: 'feed',
-				  message: 'TESTTT',
-				  link: 'http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197',
-				  caption: 'ESGI Quizz Community, le jeu qui vous met à l\'épreuve !',
-				}, function(response){});
+
+				// Shows the link to share in order to allow the user to share his result on FB.
+				jQuery('.shareResult').show();
+				jQuery('#share-result-link').on('click', function(){
+					FB.ui({
+					  method: 'feed',
+					  link: 'http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197',
+					  caption: 'ESGI Quizz Community, le jeu qui vous met à l\'épreuve !',
+					}, function(response){});
+				})
 			}
 			else 
 			{	
@@ -72,6 +76,9 @@ jQuery(document).ready(function() {
 		<img src="<?php echo $quizz->getImageUrl('derniermot.png'); ?>" alt="dernier mot" />
 		<div class="button yes">OUI</div>
 		<div class="button no" >NON</div>
+	</div>
+	<div class="shareResult">
+		e<a href="<?php echo WEBROOT; ?>index/question" id="share-result-link">Partager le résultat</a>';
 	</div>
 	<div class="number">
 		Question <span>10</span>/50

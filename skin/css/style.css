@@ -83,7 +83,7 @@ body {
 	margin: 30px auto;
 }
 
-#content a#start_quiz {
+#content a#start_quiz, a#share-result-link {
 	display: block;
 	width: 200px;
 	text-align: center;
@@ -96,6 +96,10 @@ body {
 	line-height: 3	5px;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+.shareResult{
+    display: none;
 }
 
 
