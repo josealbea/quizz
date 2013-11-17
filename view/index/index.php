@@ -12,5 +12,17 @@ if($user->getUserLikes($fbUser, APPID) == 0){
 <?php
 }else{
 	echo '<a href="' . WEBROOT . 'index/question" id="start_quiz">Commencer le Quiz</a>';
+	echo '<a href="#" id="send-invitation">Inviter des amis</a>';
 }
 ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('#send-invitation').on('click', function(){
+		FB.ui({
+			method: 'apprequests',
+			message: 'Invitation à ESGI Quizz Community'
+		});
+	});
+});
+</script>
