@@ -76,7 +76,7 @@ body {
 }
 
 #content #liens{
-    bottom: 0;
+    bottom: 100px;
     left: 50px;
     position: absolute;
 }
