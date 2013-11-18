@@ -153,12 +153,11 @@ body {
 }
 
 #question #derniermot .button.yes {
-    background:url(../images/yes.ico) no-repeat 51px 12px #43ADD3;
+    background-color: #43ADD3;
 }
 
 #question #derniermot .button.no {
-        background:url(../images/non.ico) no-repeat 57px 12px red;
-
+    background: red;
 }
 
 #question .reponse-1 {
