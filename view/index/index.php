@@ -1,3 +1,4 @@
+<div id="background">
 	<h2>Testez votre connaissance sur votre école et comparez vos scores avec vos amis.</h2>
 	<?php
 	/*
@@ -27,4 +28,4 @@
 		});
 	});
 	</script>
-
+</div>

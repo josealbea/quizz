@@ -1,9 +1,14 @@
 body {
-	background:url(../images/test4.jpg) no-repeat;
-    background-size: cover;
+    background-color: #ececec;
 	width: 768px;
 	margin: 20px auto;
 	font-family: "Roboto";
+}
+
+#background{
+    background:url(../images/test4.jpg) no-repeat;
+    background-size: cover;
+    height: 670px;
 }
 
 /** FONTS **/
