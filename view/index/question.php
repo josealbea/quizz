@@ -35,6 +35,7 @@ jQuery(document).ready(function() {
 		.done(function(response) {
 			console.log('response : '); console.log(response);
 			console.log('result : ' + response.result);
+			jQuery('#derniermot').hide();
 			if (response.result == 1) 
 			{
 				jQuery('.reponse').removeClass('active');
