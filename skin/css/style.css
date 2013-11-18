@@ -1,5 +1,6 @@
 body {
-	background-color:#ececec;
+	background:url(../images/test4.jpg) no-repeat;
+    background-size: cover;
 	width: 768px;
 	margin: 20px auto;
 	font-family: "Roboto";
@@ -60,11 +61,6 @@ body {
          url('../fonts/Roboto-Black-webfont.svg#RobotoBlack') format('svg');
     font-weight: normal;
     font-style: normal;
-}
-
-#background{
-    background:url(../images/test4.jpg) no-repeat;
-    background-size: cover;
 }
 
 

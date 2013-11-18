@@ -18,7 +18,7 @@
 		echo "</div>";
 	}
 	?>
-
+</div>
 	<script type="text/javascript">
 	jQuery(document).ready(function() {
 		jQuery('#send-invitation').on('click', function(){
@@ -29,4 +29,4 @@
 		});
 	});
 	</script>
-</div>
+
