@@ -1,4 +1,3 @@
-<h1>Bienvenue sur Super Quiz ESGI</h1>		
 <h2>Testez votre connaissance sur votre école et comparez vos scores avec vos amis.</h2>
 <?php
 /*
@@ -12,6 +11,7 @@ if($user->getUserLikes($fbUser, APPID) == 0){
 <?php
 }else{
 	echo "<div id='liens'>";
+		echo '<a href="#" class="modern socle">CGU</a>';
 		echo '<a href="' . WEBROOT . 'index/question" id="start_quiz" class="modern socle">Commencer le Quiz</a>';
 		echo '<a href="#" id="send-invitation" class="modern socle">Inviter des amis</a>';
 	echo "</div>";
