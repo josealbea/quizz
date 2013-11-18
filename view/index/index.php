@@ -1,4 +1,3 @@
-<div id="background">
 	<h2>Testez votre connaissance sur votre école et comparez vos scores avec vos amis.</h2>
 	<?php
 	/*
@@ -18,7 +17,6 @@
 		echo "</div>";
 	}
 	?>
-</div>
 	<script type="text/javascript">
 	jQuery(document).ready(function() {
 		jQuery('#send-invitation').on('click', function(){
