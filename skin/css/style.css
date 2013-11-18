@@ -160,6 +160,12 @@ body {
     background: red;
 }
 
+#question #img-share-result-link{
+    width:96px;
+    float:right;
+    margin: 0;
+}
+
 #question .reponse-1 {
     bottom: 98px;
     left: 50px;
