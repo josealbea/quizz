@@ -153,14 +153,12 @@ body {
 }
 
 #question #derniermot .button.yes {
-    background-color: #43ADD3;
-}
-#question #derniermot .button.yes:hover {
-    background-color: #41A9D1;
+    background:url(../images/yes.ico) no-repeat 51px 12px #43ADD3;
 }
 
 #question #derniermot .button.no {
-    background: red;
+        background:url(../images/non.ico) no-repeat 57px 12px red;
+
 }
 
 #question .reponse-1 {
