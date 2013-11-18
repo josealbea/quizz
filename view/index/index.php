@@ -11,8 +11,10 @@ if($user->getUserLikes($fbUser, APPID) == 0){
 	<div class="fb-like" data-href="http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197?ref=hl" data-width="300" data-height="100" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
 <?php
 }else{
-	echo '<a href="' . WEBROOT . 'index/question" id="start_quiz">Commencer le Quiz</a>';
-	echo '<a href="#" id="send-invitation">Inviter des amis</a>';
+	echo "<div id='liens'>";
+		echo '<a href="' . WEBROOT . 'index/question" id="start_quiz" class="modern socle">Commencer le Quiz</a>';
+		echo '<a href="#" id="send-invitation" class="modern socle">Inviter des amis</a>';
+	echo "</div>";
 }
 ?>
 
