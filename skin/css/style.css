@@ -141,7 +141,6 @@ body {
 
 #question #derniermot .button {
     border-radius: 5px;
-    border: 1px solid #888888;
     height: 30px;
     line-height: 30px;
     padding: 0 20px;
@@ -150,10 +149,14 @@ body {
     display: inline-block;
     background: #F2F2F2;
     cursor: pointer;
+    color: white; text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 #question #derniermot .button.yes {
-    background: green;
+    background-color: #43ADD3;
+}
+#question #derniermot .button.yes:hover {
+    background-color: #41A9D1;
 }
 
 #question #derniermot .button.no {
@@ -239,47 +242,4 @@ font-family: 'Cherry Swash', cursive;
   top: -6px; bottom: -6px;
   right: -6px; left: -6px;
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0));
-}
-
-// pour les bouttons question
-.a_demo_two {
-    background-color:#6fba26;
-    padding:10px;
-    position:relative;
-    font-family: 'Open Sans', sans-serif;
-    font-size:12px;
-    text-decoration:none;
-    color:#fff;
-    background-image: linear-gradient(bottom, rgb(100,170,30) 0%, rgb(129,212,51) 100%);
-    box-shadow: inset 0px 1px 0px #b2f17f, 0px 6px 0px #3d6f0d;
-    border-radius: 5px;
-}
- 
-.a_demo_two:active {
-    top:7px;
-    background-image: linear-gradient(bottom, rgb(100,170,30) 100%, rgb(129,212,51) 0%);
-    box-shadow: inset 0px 1px 0px #b2f17f, inset 0px -1px 0px #3d6f0d;
-    color: #156785;
-    text-shadow: 0px 1px 1px rgba(255,255,255,0.3);
-    background: rgb(44,160,202);
-}
-.a_demo_two::before {
-    background-color:#072239;
-    content:"";
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    padding-left:2px;
-    padding-right:2px;
-    padding-bottom:4px;
-    left:-2px;
-    top:5px;
-    z-index:-1;
-    border-radius: 6px;
-    box-shadow: 0px 1px 0px #fff;
-}
- 
-.a_demo_two:active::before {
-    top:-2px;
 }
