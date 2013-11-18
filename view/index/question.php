@@ -75,8 +75,8 @@ jQuery(document).ready(function() {
 <div id="question">
 	<div id="derniermot">
 		<img src="<?php echo $quizz->getImageUrl('derniermot.png'); ?>" alt="dernier mot" />
-		<div class="a_demo_two">OUI</div>
-		<div class="a_demo_two" >NON</div>
+		<div class="button a_demo_two">OUI</div>
+		<div class="button a_demo_two" >NON</div>
 	</div>
 	<div class="shareResult">
 		<a href="#" id="share-result-link">Partager le résultat</a>';
