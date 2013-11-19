@@ -7,6 +7,8 @@
 	<script src="<?php echo WEBROOT; ?>skin/js/jquery-1.10.2.min.js"></script>
 </head>
 <body>
+	<!-- test audio-->
+	<audio src="skin/musique/son.mp3" autoplay></audio>
 	<!-- Facebook loading -->
 	<div id="fb-root"></div>
 	<script>
