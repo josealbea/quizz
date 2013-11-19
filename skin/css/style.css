@@ -1,0 +1,247 @@
+body {
+	width: 768px;
+	margin: 20px auto;
+	font-family: "Roboto";
+}
+
+#background{
+    background:url(../images/test4.jpg) no-repeat;
+    background-size: cover;
+    height: 760px;
+}
+
+/** FONTS **/
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.eot');
+    src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto italic';
+    src: url('../fonts/Roboto-Italic-webfont.eot');
+    src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Italic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto bold';
+    src: url('../fonts/Roboto-Bold-webfont.eot');
+    src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto light';
+    src: url('../fonts/Roboto-Light-webfont.eot');
+    src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Light-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto black';
+    src: url('../fonts/Roboto-Black-webfont.eot');
+    src: url('../fonts/Roboto-Black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Black-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Black-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Black-webfont.svg#RobotoBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#content h2 {
+	font-size: 20px;
+	text-align: center;
+}
+
+#content img {
+	width: 368px;
+	display: block;
+	margin: 30px auto;
+}
+
+#content #liens{
+    bottom: 12%;
+    left: 20%;
+    position: absolute;
+}
+
+.shareResult{
+    display: none;
+}
+
+
+/** QUESTIONS **/
+
+#question {
+	background: url(../images/millions.jpeg) no-repeat top center;
+	width: 768px;
+	height: 576px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#question .qi_question {
+	color: #FFFFFF;
+	text-align:center;
+	bottom: 170px;
+	left: 80px;
+	position: absolute;
+}
+
+#question .response_question {
+    color: #FFFFFF;
+}
+
+#question .reponse-1, #question .reponse-2, #question .reponse-3, #question .reponse-4 {
+    width: 244px;
+    padding: 0 20px 0 55px;
+    line-height: 39px;
+    height: 39px;
+}
+
+#question .reponse-1.active, #question .reponse-2.active, #question .reponse-3.active, #question .reponse-4.active {
+    background: url(../images/selected.png) no-repeat;
+}
+
+#question .reponse-1.response, #question .reponse-2.response, #question .reponse-3.response, #question .reponse-4.response {
+    background: url(../images/response.png) no-repeat;
+}
+
+#question #derniermot {
+    display: none;
+    float: left;
+    margin-left: 40px;
+    text-align: center;
+}
+
+#question #derniermot img {
+    width: 250px;
+}
+
+#question #derniermot .button {
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    text-align: left;
+    margin: 0 10px;
+    display: inline-block;
+    background: #F2F2F2;
+    cursor: pointer;
+    color: white; text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+#question #derniermot .button.yes {
+    background-color: #43ADD3;
+}
+
+#question #derniermot .button.no {
+    background: red;
+}
+
+#question #img-share-result-link{
+    width:96px;
+    float:right;
+    margin: 0;
+}
+
+#question .reponse-1 {
+    bottom: 98px;
+    left: 50px;
+    position: absolute;
+}
+
+#question .reponse-2 {
+    bottom: 98px;
+    left: 397px;
+    position: absolute;
+}
+
+#question .reponse-3 {
+    bottom: 47px;
+    left: 50px;
+    position: absolute;
+}
+
+#question .reponse-4 {
+    bottom: 47px;
+    left: 397px;
+    position: absolute;
+}
+
+.loader{
+    background-image: url('../images/ajax-loader.gif');
+}
+
+// Pour la page accueil
+#liens {
+left: 140px;
+    position: absolute;
+    top: 480px;
+    }
+    #liens a{
+    float:left;
+    }
+    .modern {
+    
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 15px;
+  background: #021124;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  color:#fff;
+font-family: 'Cherry Swash', cursive;
+  font-size:21px;
+  transition: all 0.3s ease-out;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 2px 2px rgba(0,0,0,0.3),
+    0 0 4px 1px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.modern:hover  { background: #1A3B7E; }
+
+.socle {
+  position: relative;
+  z-index: 2;
+}
+.socle:active {
+  box-shadow: 
+    inset 0 -2px 1px rgba(255,255,255,0.2),
+    inset 0 3px 2px rgba(0,0,0,0.12);
+}
+
+.socle:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  border-radius: 6px;
+  box-shadow: 
+    inset 0 1px 0 rgba(0,0,0,0.1),
+    inset 0 -1px 0 rgba(255,255,255,0.7);
+  top: -6px; bottom: -6px;
+  right: -6px; left: -6px;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0));
+}
