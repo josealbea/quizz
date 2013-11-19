@@ -1,4 +1,5 @@
 body {
+  background-color: #fff;
 	width: 768px;
 	margin: 20px auto;
 	font-family: "Roboto";
@@ -80,7 +81,7 @@ body {
 }
 
 #content #liens{
-    bottom: 12%;
+    bottom: 8%;
     left: 20%;
     position: absolute;
 }
