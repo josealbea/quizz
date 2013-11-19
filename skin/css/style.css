@@ -5,12 +5,6 @@ body {
 	font-family: "Roboto";
 }
 
-testson
-audio {
-    background: none repeat scroll 0 0 #FF0000;
-    display: block;
-}
-
 #background{
     background:url(../images/test4.jpg) no-repeat;
     background-size: cover;
