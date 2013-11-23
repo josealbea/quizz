@@ -26,10 +26,11 @@
 				message: 'Invitation à ESGI Quizz Community'
 			});
 		});
-		
-		FB.Event.subscribe('edge.create', function(response) {
-			window.location.reload();
-		});
+		setTimeout(function(){
+			FB.Event.subscribe('edge.create', function(response) {
+				window.location.reload();
+			});
+		}, 3000);		
 	});
 	</script>
 </div>
