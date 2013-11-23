@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<title><?php echo $this->title; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
