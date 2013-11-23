@@ -83,7 +83,7 @@ jQuery(document).ready(function() {
 		<a href="#" id="share-result-link"><img id="img-share-result-link" src="<?php echo $quizz->getImageUrl('partager.png'); ?>" alt="partager" /></a>
 	</div>
 	<div class="number">
-		Question <span>10</span>/50
+		Question <span><?php echo $totalAsked + 1; ?></span>/<?php echo MAX_QUESTIONS; ?>
 	</div>
 	<div class="loader">
 	</div>
