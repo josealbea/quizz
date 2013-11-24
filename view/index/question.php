@@ -85,6 +85,16 @@ jQuery(document).ready(function() {
 	<div class="number">
 		Question <span><?php echo $totalAsked + 1; ?></span>/<?php echo MAX_QUESTIONS; ?>
 	</div>
+	<div class="earnings">
+		<?php
+		$currentEarning = $this->earnings[$totalAsked+1];
+		var_dump($currentEarning);
+		foreach ($this->earnings as $key => $value) {
+			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
+			echo '<div class="earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '</div>';
+		}
+		?>
+	</div>
 	<div class="loader">
 	</div>
 	<div class="qi_question">

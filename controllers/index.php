@@ -1,6 +1,24 @@
 <?php
 class Index extends Controller
 {
+	protected $earnings = array(
+								'1' => '200',
+								'2' => '300',
+								'3' => '500',
+								'4' => '800',
+								'5' => '1 500',
+								'6' => '3 000',
+								'7' => '6 000',
+								'8' => '12 000',
+								'9' => '24 000',
+								'10' => '48 000',
+								'11' => '72 000',
+								'12' => '100 000',
+								'13' => '150 000',
+								'14' => '300 000',
+								'15' => '1 000 000',
+							);
+
 	public function indexAction()
 	{
 		$this->title   = 'Test magic setter for title';
