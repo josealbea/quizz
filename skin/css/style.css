@@ -75,9 +75,9 @@ body {
 }
 
 #content img {
-	width: 368px;
+	/*width: 368px*/;
 	display: block;
-	margin: 30px auto;
+	/*margin: 30px auto*/;
 }
 
 #content #liens{
@@ -161,9 +161,7 @@ body {
 }
 
 #question #img-share-result-link{
-    width:96px;
-    float:right;
-    margin: 0;
+    width: 136px;
 }
 
 #question .reponse-1 {
@@ -271,4 +269,9 @@ font-family: 'Cherry Swash', cursive;
     position: absolute;
     top: 700px;
 }
+.shareResult {
+    position: absolute;
+    top: 40px;
+    left:10px;
+  }
 

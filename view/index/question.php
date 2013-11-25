@@ -72,7 +72,6 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<h1>Bienvenue sur Super Quiz ESGI</h1>
 <div id="question">
 	<div id="derniermot">
 		<img src="<?php echo $quizz->getImageUrl('derniermot.png'); ?>" alt="dernier mot" />
