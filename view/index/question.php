@@ -88,10 +88,9 @@ jQuery(document).ready(function() {
 	<div class="earnings">
 		<?php
 		$currentEarning = $this->earnings[$totalAsked+1];
-		var_dump($currentEarning);
 		foreach ($this->earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
-			echo '<div class="earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '</div>';
+			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '</div>';
 		}
 		?>
 	</div>
