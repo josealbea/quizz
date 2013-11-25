@@ -252,3 +252,16 @@ font-family: 'Cherry Swash', cursive;
     font-size: 21px;
     padding: 10px;
 }
+#question .earnings{
+  float: right;
+  padding-right: 15px;
+}
+#question .earnings .earning{
+  color: #fff;
+  font-size: 15px;
+}
+#question .earnings .current{
+  color: #43ADD3;
+  font-size: 17px;
+}
+
