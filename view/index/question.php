@@ -88,7 +88,8 @@ jQuery(document).ready(function() {
 	<div class="earnings">
 		<?php
 		$currentEarning = $this->earnings[$totalAsked+1];
-		foreach ($this->earnings as $key => $value) {
+		$earnings = array_reverse($this->earnings);
+		foreach ($earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
 			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '</div>';
 		}
