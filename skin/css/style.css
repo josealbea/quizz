@@ -246,3 +246,22 @@ font-family: 'Cherry Swash', cursive;
   right: -6px; left: -6px;
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0));
 }
+
+.number {
+    color: #FFFFFF;
+    font-size: 21px;
+    padding: 10px;
+}
+#question .earnings{
+  float: right;
+  padding-right: 15px;
+}
+#question .earnings .earning{
+  color: #fff;
+  font-size: 15px;
+}
+#question .earnings .current{
+  color: #43ADD3;
+  font-size: 17px;
+}
+
