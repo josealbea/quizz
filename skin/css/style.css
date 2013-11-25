@@ -255,6 +255,7 @@ font-family: 'Cherry Swash', cursive;
 #question .earnings{
   float: right;
   padding:40px 20px 0px 0px;
+  text-align: center;
 }
 #question .earnings .earning{
   color: #fff;

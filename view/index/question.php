@@ -48,7 +48,7 @@ jQuery(document).ready(function() {
 					  method: 'feed',
 					  link: 'http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197',
 					  picture: 'http://totaly.fr/wp-content/uploads/2012/04/jaquette-qui-veut-gagner-des-millions-editions-speciales-xbox-360-cover-avant-g-1317926532.jpg',
-					  caption: 'ESGI Quizz Community, le jeu qui vous met à l\'épreuve !',
+					  caption: 'ESGI Quizz Community, le jeu qui vous met à l\'épreuve ! <br> Qui sera le premier à être millionaire ?',
 					}, function(response){});
 				})
 			}
