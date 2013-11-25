@@ -246,3 +246,9 @@ font-family: 'Cherry Swash', cursive;
   right: -6px; left: -6px;
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0));
 }
+
+.number {
+    color: #FFFFFF;
+    font-size: 21px;
+    padding: 10px;
+}
