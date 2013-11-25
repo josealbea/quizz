@@ -1,5 +1,4 @@
 <div id="background">
-	<h2>Testez votre connaissance sur votre école et comparez vos scores avec vos amis.</h2>
 	<?php
 	/*
 	 * Check if the user likes our fan page or not.
@@ -7,8 +6,10 @@
 	 */
 	if($user->getUserLikes($fbUser, APPID) == 0){
 	?>
+	<div id="aime-jouer">
 		Vous devez aimer notre page pour pouvoir jouer. <br />
 		<div class="fb-like" data-href="http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197?ref=hl" data-width="300" data-height="100" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
+	</div>
 	<?php
 	}else{
 		echo "<div id='liens'>";
