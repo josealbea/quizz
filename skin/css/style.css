@@ -253,9 +253,9 @@ font-family: 'Cherry Swash', cursive;
     width: 150px;
 }
 #question .earnings{
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
   float: right;
-  padding: 34px 50px;
+  padding: 33px 50px;
   text-align: left;
 }
 #question .earnings .earning{
@@ -264,7 +264,7 @@ font-family: 'Cherry Swash', cursive;
 }
 #question .earnings .current{
   color: #FFA500;
-  font-size: 17px;
+  font-size: 18px;
 }
 #aime-jouer{
     left: 420px;
