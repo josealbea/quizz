@@ -40,7 +40,8 @@ jQuery(document).ready(function() {
 			{
 				jQuery('.reponse').removeClass('active');
 				jQuery('#' + response.correctAnswer.id).addClass('response');
-
+				jQuery('#question').hide();
+				jQuery('#looser-party').show();
 				// Shows the link to share in order to allow the user to share his result on FB.
 				jQuery('.shareResult').show();
 				jQuery('#share-result-link').on('click', function(){
@@ -55,9 +56,14 @@ jQuery(document).ready(function() {
 			else 
 			{	
 				jQuery('#' + response.correctAnswer.id).addClass('response');
-				setTimeout(function(){
-					window.location.reload();
-				}, 4000);
+				if (response.result == 15) {
+					jQuery('winner-party').show();
+				}
+				else {
+					setTimeout(function(){
+						window.location.reload();
+					}, 4000);
+				}
 
 			}
 		})
@@ -131,3 +137,9 @@ jQuery(document).ready(function() {
 		?>
 	</div>
 </div>	
+<div id="looser-party">
+	<span class="result">Quel dommage, vous avez échoué à la question : </span>
+</div>
+<div id="winner-party"> 
+	<span class="result">Félicitation, vous venez de remporter le million !!!</span>
+</div>

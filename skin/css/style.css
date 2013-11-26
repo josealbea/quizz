@@ -278,3 +278,20 @@ font-family: 'Cherry Swash', cursive;
     left:10px;
   }
 
+#looser-party {
+  display: none;
+  background: url(../images/looser.jpeg) no-repeat;
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#winner-party {
+  display: none;
+  background: url(../images/winner.jpeg) no-repeat;
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+  position: relative;
+}
