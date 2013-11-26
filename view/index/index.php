@@ -30,7 +30,10 @@
 			FB.Event.subscribe('edge.create', function(response) {
 				window.location.reload();
 			});
-		}, 3000);		
+			FB.Event.unsubscribe('edge.create', function(response) {
+				window.top.location = 'http://www.facebook.com/pages/ESGI-Quizz-Community/535494466533197?id=535494466533197&sk=app_194744407377894';
+			});
+		}, 3000);
 	});
 	</script>
 </div>
