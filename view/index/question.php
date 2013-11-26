@@ -92,6 +92,8 @@ jQuery(document).ready(function() {
 		foreach ($earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
 			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">'.$j.' '. $value . ' €</div>';
+			$j--;
+
 		}
 		?>
 	</div>
