@@ -90,7 +90,7 @@ jQuery(document).ready(function() {
 		$earnings = array_reverse($this->earnings);
 		foreach ($earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
-			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '</div>';
+			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . '€ </div>';
 		}
 		?>
 	</div>
