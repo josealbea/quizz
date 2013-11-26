@@ -115,12 +115,13 @@ jQuery(document).ready(function() {
 		 */
 		if($questionId){
 			// $answers comes from question controller
+			$j = MAX_QUESTIONS;
 			if(count($answers) > 0){
 				$i = 1;
-				$j = MAX_QUESTIONS;
 				foreach ($answers as $answer) {
 					echo '<div id="' . $answer['id'] . '" class="reponse reponse-'.$i.'">'.$j.' '.$answer['answer'].'</div>';
-					$i++;$j--;
+					$i++;
+					$j--;
 				}
 			}else{
 				echo 'Aucune réponse n\'a pu être trouvée.';
