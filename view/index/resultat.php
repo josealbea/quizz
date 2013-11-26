@@ -121,7 +121,7 @@ jQuery(document).ready(function() {
 				foreach ($answers as $answer) {
 					echo '<div id="' . $answer['id'] . '" class="reponse reponse-'.$i.'">'.$j.' '.$answer['answer'].'</div>';
 					$i++;
-					$j--;
+					$j--; 
 				}
 			}else{
 				echo 'Aucune réponse n\'a pu être trouvée.';

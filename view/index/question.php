@@ -88,9 +88,10 @@ jQuery(document).ready(function() {
 		<?php
 		$currentEarning = $this->earnings[$totalAsked+1];
 		$earnings = array_reverse($this->earnings);
+		$j = MAX_QUESTIONS;
 		foreach ($earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
-			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">' . $value . ' €</div>';
+			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">'.$j.' '. $value . ' €</div>';
 		}
 		?>
 	</div>
@@ -117,10 +118,9 @@ jQuery(document).ready(function() {
 			// $answers comes from question controller
 			if(count($answers) > 0){
 				$i = 1;
-				$j = MAX_QUESTIONS;
 				foreach ($answers as $answer) {
-					echo '<div id="' . $answer['id'] . '" class="reponse reponse-'.$i.'">'.$j.' '.$answer['answer'].'</div>';
-					$i++;$j--;
+					echo '<div id="' . $answer['id'] . '" class="reponse reponse-'.$i.'">'.$answer['answer'].'</div>';
+					$i++;
 				}
 			}else{
 				echo 'Aucune réponse n\'a pu être trouvée.';
