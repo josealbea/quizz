@@ -5,13 +5,15 @@ class Game extends Model
 	protected $currentGame;
 	protected $questionId;
 	protected $done;
+	protected $score;
 
-	public function setGame($game = null, $fbUser, $questionId, $done)
+	public function setGame($game = null, $fbUser, $questionId, $done, $score)
 	{
 		$this->user        = $fbUser;
 		$this->currentGame = $game;
 		$this->questionId  = $questionId;
-		$this->done      = $done;
+		$this->done        = $done;
+		$this->score       = $score;
 
 		if($game == null || $game == 0){
 			self::createGame();
@@ -23,7 +25,7 @@ class Game extends Model
 	public function createGame()
 	{
 		// Create the game
-		$fields = array('date' => date('Y-m-d H:i:s', time()), 'user_id' => $this->user['id'], 'done' => $this->done);
+		$fields = array('date' => date('Y-m-d H:i:s', time()), 'user_id' => $this->user['id'], 'done' => $this->done, 'score' => $this->score);
 		$this->table = 'game';
 
 		$gameInserted = $this->insert($fields);
@@ -42,7 +44,7 @@ class Game extends Model
 		$this->insert($fields);
 
 		// Update the game
-		$fields = array('done' => $this->done);
+		$fields = array('done' => $this->done, 'score' => $this->score);
 		$this->table = 'game';
 		$where  = array('id' => $this->currentGame);
 		$this->insert($fields, $where);

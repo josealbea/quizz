@@ -95,13 +95,29 @@ class Index extends Controller
 		$game             = new Game();
 		$this->totalAsked = $game->getTotalAskedQuestions($_POST['currentGame']);
 
+		if(($this->totalAsked + 1 == MAX_QUESTIONS) && $this->answer['flag'] == 1){
+			$win = 1;
+		}else{
+			$win = 0;
+		}
+
 		if( (($this->totalAsked + 1) == MAX_QUESTIONS) || ($this->answer['flag'] == 0) ){
 			$done = 1;
 		}else{
 			$done = 0;
 		}
+
+		if($done == 1 && $this->totalAsked == 0 && $win == 0){
+			$score = 0;
+		}elseif($done == 1 && $this->totalAsked != 0 && $win == 0){
+			$score = $this->earnings[$this->totalAsked];
+		}elseif($done == 1 && $this->totalAsked == 0 && $win == 1){
+			$score = $this->earnings[$this->totalAsked + 1];
+		}else{
+			$score = $this->earnings[$this->totalAsked + 1];
+		}
 		
-		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done);
+		$this->game   = $game->setGame($_POST['currentGame'], $this->fbUser, $_POST['questionId'], $done, $score);
 		$response = array('result' => $done, 'correctAnswer' => $this->correctAnswer);
 		echo json_encode($response);
 		// Rendering the page
