@@ -40,8 +40,10 @@ jQuery(document).ready(function() {
 			{
 				jQuery('.reponse').removeClass('active');
 				jQuery('#' + response.correctAnswer.id).addClass('response');
-				jQuery('#question').hide();
-				jQuery('#looser-party').show();
+				setTimeout(function(){		
+					jQuery('#question').hide();
+					jQuery('#looser-party').show();
+				}, 4000);
 				// Shows the link to share in order to allow the user to share his result on FB.
 				jQuery('.shareResult').show();
 				jQuery('#share-result-link').on('click', function(){
@@ -57,7 +59,9 @@ jQuery(document).ready(function() {
 			{	
 				jQuery('#' + response.correctAnswer.id).addClass('response');
 				if (response.result == 15) {
-					jQuery('winner-party').show();
+					setTimeout(function(){
+						jQuery('winner-party').show();
+					}, 4000);
 				}
 				else {
 					setTimeout(function(){
