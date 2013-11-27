@@ -286,6 +286,11 @@ font-family: 'Cherry Swash', cursive;
   margin: 0 auto;
   position: relative;
   background-size: cover;
+  text-align: center;
+}
+
+#looser-party a{
+  display: inline-block;
 }
 
 #winner-party {
@@ -295,4 +300,11 @@ font-family: 'Cherry Swash', cursive;
   height: 576px;
   margin: 0 auto;
   position: relative;
+}
+.result{
+  color: #FFFFFF;
+    display: block;
+    font-size: 25px;
+    padding-top: 372px;
+    text-align: center;
 }
