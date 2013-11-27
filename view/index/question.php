@@ -98,11 +98,9 @@ jQuery(document).ready(function() {
 		<?php
 		$currentEarning = $this->earnings[$totalAsked+1];
 		$earnings = array_reverse($this->earnings);
-		$j = MAX_QUESTIONS;
 		foreach ($earnings as $key => $value) {
 			$isCurrentEarning = ($currentEarning == $value) ? 'current' : '';
-			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">'.$j.' '. $value . ' €</div>';
-			$j--;
+			echo '<div class="earning earning-' . $key . ' ' . $isCurrentEarning . '">'. $value . ' €</div>';
 
 		}
 		?>
