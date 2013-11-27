@@ -77,6 +77,7 @@ jQuery(document).ready(function() {
 		});
 	});
 	jQuery('.no').click(function() {
+		jQuery('.reponse').removeClass('active');
 		jQuery('#derniermot').hide();
 	});
 });
