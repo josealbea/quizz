@@ -89,9 +89,6 @@ jQuery(document).ready(function() {
 		<div class="button yes">OUI</div>
 		<div class="button no" >NON</div>
 	</div>
-	<div class="shareResult">
-		<a href="#" id="share-result-link"><img id="img-share-result-link" src="<?php echo $quizz->getImageUrl('partager.png'); ?>" alt="partager" /></a>
-	</div>
 	<div class="number">
 		Question <span><?php echo $totalAsked + 1; ?></span>/<?php echo MAX_QUESTIONS; ?>
 	</div>
@@ -143,6 +140,10 @@ jQuery(document).ready(function() {
 <div id="looser-party">
 	<span class="result">Quel dommage, vous avez échoué, retentez votre chance</span>
 	<a href="<?php echo WEBROOT; ?>index/question" class="modern socle">Rejouer maintenant</a>
+	
+	<div class="shareResult">
+		<a href="#" id="share-result-link"><img id="img-share-result-link" src="<?php echo $quizz->getImageUrl('partager.png'); ?>" alt="partager" /></a>
+	</div>
 </div>
 <div id="winner-party"> 
 	<span class="result">Félicitation, vous venez de remporter le million !!!</span>
