@@ -140,8 +140,10 @@ jQuery(document).ready(function() {
 	</div>
 </div>	
 <div id="looser-party">
-	<span class="result">Quel dommage, vous avez échoué à la question : </span>
+	<span class="result">Quel dommage, vous avez échoué, retentez votre chance</span>
+	<a href="<?php echo WEBROOT; ?>index/question" class="modern socle">Rejouer maintenant</a>
 </div>
 <div id="winner-party"> 
 	<span class="result">Félicitation, vous venez de remporter le million !!!</span>
+	<a href="<?php echo WEBROOT; ?>index/question" class="modern socle">Rejouer maintenant</a>
 </div>
